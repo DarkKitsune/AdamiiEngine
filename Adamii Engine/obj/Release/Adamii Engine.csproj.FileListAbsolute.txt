@@ -1,8 +1,0 @@
-C:\Users\Norm & Barb\Documents\projects\csharp\Adamii Engine\Adamii Engine\bin\Release\Adamii Engine.exe.config
-C:\Users\Norm & Barb\Documents\projects\csharp\Adamii Engine\Adamii Engine\bin\Release\Adamii Engine.exe
-C:\Users\Norm & Barb\Documents\projects\csharp\Adamii Engine\Adamii Engine\bin\Release\Adamii Engine.pdb
-C:\Users\Norm & Barb\Documents\projects\csharp\Adamii Engine\Adamii Engine\bin\Release\OpenTK.dll
-C:\Users\Norm & Barb\Documents\projects\csharp\Adamii Engine\Adamii Engine\bin\Release\OpenTK.xml
-C:\Users\Norm & Barb\Documents\projects\csharp\Adamii Engine\Adamii Engine\obj\Release\Adamii Engine.exe
-C:\Users\Norm & Barb\Documents\projects\csharp\Adamii Engine\Adamii Engine\obj\Release\Adamii Engine.pdb
-C:\Users\Norm & Barb\Documents\projects\csharp\Adamii Engine\Adamii Engine\obj\Release\Adamii Engine.csprojResolveAssemblyReference.cache
