@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using OpenTK.Graphics.OpenGL4;
+using OpenTK.Graphics.OpenGL;
 
 namespace Adamii_Engine
 {
@@ -36,26 +36,23 @@ namespace Adamii_Engine
             if (DefaultVertex != null && DefaultVertex.IsValid)
                 DefaultVertex.Dispose();
             DefaultVertex = new Shader(Shader.ShaderType.Vertex, "DefaultVertex", @"
-#version 410
+#version 140
 
-// a projection transformation to apply to the vertex' position
 uniform mat4 projectionMatrix;
 uniform vec3 instancePosition[<instances>];
 uniform vec3 instanceScale[<instances>];
 uniform vec2 instanceUVXY[<instances>];
 uniform vec2 instanceUVWH[<instances>];
 
-// attributes of our vertex
 in vec3 vPosition;
 in vec2 vUV;
 in vec4 vColor;
 
-out vec4 fColor; // must match name in fragment shader
+out vec4 fColor;
 out vec2 UV;
 
 void main()
 {
-    // gl_Position is a special variable of OpenGL that must be set
     gl_Position = projectionMatrix * vec4(vPosition * instanceScale[gl_InstanceID] + instancePosition[gl_InstanceID], 1.0);
     fColor = vColor;
 
@@ -64,14 +61,14 @@ void main()
             if (DefaultFragment != null && DefaultFragment.IsValid)
                 DefaultFragment.Dispose();
             DefaultFragment = new Shader(Shader.ShaderType.Fragment, "DefaultFragment", @"
-#version 410
+#version 140
 
 uniform sampler2D textureSampler;
 
-in vec4 fColor; // must match name in vertex shader
+in vec4 fColor;
 in vec2 UV;
 
-out vec4 fragColor; // first out variable is automatically written to the screen
+out vec4 fragColor;
 
 void main()
 {
@@ -88,14 +85,16 @@ void main()
             code = code.Replace("<instances>", GraphicsSettings.MaxBatchInstances.ToString());
             Name = name;
             Source = code;
-            ID = GL.CreateShader((OpenTK.Graphics.OpenGL4.ShaderType)type);
+            ID = GL.CreateShader((OpenTK.Graphics.OpenGL.ShaderType)type);
             GLDebug.CheckErrors();
 
             GL.ShaderSource(ID, code);
             GL.CompileShader(ID);
+#if DEBUG
             var log = GL.GetShaderInfoLog(ID);
             if (log != null && log != "")
                 throw new ShaderCompileException(this, log);
+#endif
             GLDebug.CheckErrors();
         }
 

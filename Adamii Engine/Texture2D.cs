@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using OpenTK;
-using OpenTK.Graphics.OpenGL4;
+using OpenTK.Graphics.OpenGL;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -75,7 +75,7 @@ namespace Adamii_Engine
                 bitmap.Width,
                 bitmap.Height,
                 0,
-                OpenTK.Graphics.OpenGL4.PixelFormat.Bgra,
+                OpenTK.Graphics.OpenGL.PixelFormat.Bgra,
                 PixelType.UnsignedByte,
                 data.Scan0
                 );
