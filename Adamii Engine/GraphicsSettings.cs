@@ -10,7 +10,7 @@ namespace Adamii_Engine
 {
     static class GraphicsSettings
     {
-        public static int MaxBatchInstances = 96;
+        public static int MaxBatchInstances = 32;
 
         public static void Init()
         {

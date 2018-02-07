@@ -33,7 +33,7 @@ namespace Adamii_Engine
             while (DefaultProgram.GetUniformLocation("instancePosition") == -1 && GraphicsSettings.MaxBatchInstances > 0)
             {
                 GLDebug.IgnoreError();
-                GraphicsSettings.MaxBatchInstances -= 16;
+                GraphicsSettings.MaxBatchInstances -= 4;
                 Console.WriteLine("Failed to compile default program, trying batch size of " + GraphicsSettings.MaxBatchInstances);
                 DefaultProgram.Dispose();
                 Shader.CompileDefaults();
